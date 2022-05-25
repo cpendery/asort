@@ -1,0 +1,40 @@
+# name: test_cli_output
+  '''
+  __all__ = [  # comment
+      "Today",  # comment
+      "Yesterday",  # comment
+      "_Thursday",  # comment
+  ]  # comment
+  
+  '''
+# ---
+# name: test_cli_output.1
+  True
+# ---
+# name: test_cli_output.2
+  '''
+  __all__ = ["1", "2", "5", "9"] ; __all__ = ["2", "3", "9"]  # fmt: skip
+  
+  '''
+# ---
+# name: test_cli_output.3
+  True
+# ---
+# name: test_cli_output.4
+  '''
+  __all__ = ["One", "Zed"]
+  
+  '''
+# ---
+# name: test_cli_output.5
+  False
+# ---
+# name: test_cli_output.6
+  '''
+  __all__ = ["Today", "Yesterday", "_Thursday"]  # comment
+  
+  '''
+# ---
+# name: test_cli_output.7
+  True
+# ---
