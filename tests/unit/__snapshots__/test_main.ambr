@@ -1,0 +1,15 @@
+# name: test_cli
+  _CallList([
+    _Call(
+      tuple(
+        'paths',
+      ),
+      dict({
+        'help': 'sort all Python files, starting from the given path, recursively.',
+        'metavar': 'path',
+        'nargs': '+',
+        'type': <class 'str'>,
+      }),
+    ),
+  ])
+# ---
