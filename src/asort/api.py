@@ -1,8 +1,11 @@
+from __future__ import annotations
+
 import io
 import os
+from collections.abc import Iterable
 from pathlib import Path
 from tokenize import NAME, OP, STRING, TokenInfo, generate_tokens
-from typing import Dict, Iterable, List, Optional, TextIO
+from typing import TextIO
 
 
 class ASort:
@@ -87,11 +90,12 @@ def process_path(path: str):
                     print(f"Fixing: {filepath}")
 
 
-def sort_file(filepath: Path, output_stream: Optional[io.StringIO] = None) -> bool:
+def sort_file(filepath: Path, output_stream: io.StringIO | None = None) -> bool:
     """
     given a file, sort it's __all__ lists
 
     :param filepath: the file to sort
+    :param output_stream: the output stream to write to
     """
     out_stream = output_stream or io.StringIO()
     change_occured = False
@@ -109,12 +113,12 @@ def sort_file(filepath: Path, output_stream: Optional[io.StringIO] = None) -> bo
     return change_occured
 
 
-def process_dund_tokens(tokens: List[TokenInfo]) -> List[TokenInfo]:
+def process_dund_tokens(tokens: list[TokenInfo]) -> list[TokenInfo]:
     """
     sort the given list of tokens which represent an array assigned to a
     __all__ variable.
 
-    :param t: the tokens to sort
+    :param tokens: the tokens to sort
     :return: the tokens sorted
     """
 
@@ -140,10 +144,11 @@ def process_dund_tokens(tokens: List[TokenInfo]) -> List[TokenInfo]:
             else:
                 spacing_before.append(0)
 
-    get_token_str = lambda x: x.string.replace("'", "").replace('"', "")
-    sorted_string_token_lst: List[TokenInfo] = sorted(str_token_lst, key=get_token_str)
-    sorted_all_idxs: List[int] = sorted(str_token_idxs)
-    sorted_all_line_nums: List[int] = sorted(str_token_line_nums)
+    sorted_string_token_lst: list[TokenInfo] = sorted(
+        str_token_lst, key=lambda x: x.string.replace("'", "").replace('"', "")
+    )
+    sorted_all_idxs: list[int] = sorted(str_token_idxs)
+    sorted_all_line_nums: list[int] = sorted(str_token_line_nums)
     start_line = tokens[0].start[0]
     end_line = tokens[-1].start[0]
     same_line = start_line == end_line
@@ -160,7 +165,7 @@ def process_dund_tokens(tokens: List[TokenInfo]) -> List[TokenInfo]:
                 token.line,
             )
     else:
-        line_num_map: Dict[int, int] = {
+        line_num_map: dict[int, int] = {
             token.start[0]: line_num
             for token, line_num in zip(sorted_string_token_lst, sorted_all_line_nums)
         }

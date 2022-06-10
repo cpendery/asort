@@ -1,0 +1,14 @@
+# name: test_process_path[is file and file changed]
+  '''
+  Fixing: file1.py
+  Fixing: file2.py
+  Fixing: file3.pyi
+  
+  '''
+# ---
+# name: test_process_path[is file and file hasn't changed]
+  ''
+# ---
+# name: test_process_path[not a file and file hasn't changed]
+  ''
+# ---
