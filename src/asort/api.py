@@ -10,14 +10,15 @@ from typing import TextIO
 
 class ASort:
     @staticmethod
-    def process_path(path: str) -> None:
+    def process_path(path: str) -> list[Path]:
         """
         given a path, recursively sort the __all__lists of all found python files
         if the path is a directory, otherwise, just sort the given file at the path
 
         :param path: the path to sort from
+        :return: the files that were fixed
         """
-        process_path(path)
+        return process_path(path)
 
 
 class Tokenizer:
@@ -68,17 +69,19 @@ class Tokenizer:
             prev_token = token
 
 
-def process_path(path: str):
+def process_path(path: str) -> list[Path]:
     """
     given a path, recursively sort the __all__ lists of all found python files
 
     :param path: the path to start the walk from
     """
+    fixed_paths = []
     base_path = Path(path)
     if base_path.is_file():
         change = sort_file(base_path)
         if change:
             print(f"Fixing: {base_path}")
+            fixed_paths.append(base_path)
 
     for root, _, files in os.walk(path):
         r = Path(root)
@@ -88,6 +91,8 @@ def process_path(path: str):
                 change = sort_file(filepath)
                 if change:
                     print(f"Fixing: {filepath}")
+                    fixed_paths.append(filepath)
+    return fixed_paths
 
 
 def sort_file(filepath: Path, output_stream: io.StringIO | None = None) -> bool:
