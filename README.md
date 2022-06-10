@@ -6,5 +6,6 @@
 [![codecov](https://codecov.io/gh/cpendery/asort/branch/main/graph/badge.svg)](https://codecov.io/gh/cpendery/asort)
 [![Downloads](https://img.shields.io/pypi/dm/asort)](https://pypistats.org/packages/asort)
 [![black](https://img.shields.io/badge/code%20style-black-000000.svg)]("https://github.com/psf/black")
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6119/badge)](https://bestpractices.coreinfrastructure.org/projects/6119)
 
 asort for `__all__` your `__all__` lists
