@@ -10,3 +10,50 @@
 [![DeepSource](https://deepsource.io/gh/cpendery/asort.svg/?label=active+issues&token=wY22LJbdg6Q-1V2Dd6d8Nljg)](https://deepsource.io/gh/cpendery/asort/?ref=repository-badge)
 
 asort for `__all__` your `__all__` lists
+
+asort is a Python utility / library to sort imports items in an `__all__` list alphabetically
+It provides a command line utility, Python library and pre-commit support to
+quickly sort all your imports. It requires Python 3.7+ to run but supports formatting 
+any version of Python code.
+
+Works seemlessly with [black](https://github.com/psf/black) and [isort](https://github.com/PyCQA/isort) with no configuration needed
+
+Before asort:
+
+```python
+from my_lib import Object
+from my_lib import Object3
+from my_lib import Object2
+
+__all__ = [
+  "Object",
+  "Object3",
+  "Object2",
+]
+
+```
+
+After asort:
+
+```python
+from my_lib import Object
+from my_lib import Object3
+from my_lib import Object2
+
+__all__ = [
+  "Object",
+  "Object2",
+  "Object3",
+]
+```
+
+## Installing asort
+
+Installing asort is as simple as:
+
+```bash
+pip install asort
+```
+
+## Using asort
+See usage examples on our [documentation](https://asort.readthedocs.io/en/latest/)
