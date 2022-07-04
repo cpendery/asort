@@ -1,8 +1,7 @@
 - id: asort
   name: asort
-  description: "asort for __all__ your __all__ lists"
+  description: "a python utility that sorts __all__ lists alphabetically"
   entry: asort
   language: python
   minimum_pre_commit_version: 2.9.2
-  require_serial: true
   types_or: [python, pyi]
