@@ -4,6 +4,7 @@ import io
 import os
 from collections.abc import Iterable
 from pathlib import Path
+from token import INDENT
 from tokenize import NAME, OP, STRING, TokenInfo, generate_tokens
 from typing import TextIO
 
@@ -228,6 +229,12 @@ def write_stream(processed_tokens: Iterable[TokenInfo], output_stream: TextIO) -
             whitespace_len = token.start[1] - prev_token.end[1]
         else:
             whitespace_len = len(token.line) - len(token.line.lstrip())
+            if (
+                token.type == INDENT
+                or prev_token.type == INDENT
+                and prev_token.end[0] == token.start[0]
+            ):
+                whitespace_len = 0
 
         output_stream.write(" " * whitespace_len)
         output_stream.write(token.string)

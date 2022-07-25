@@ -1,10 +1,29 @@
 # name: test_cli_output
   '''
-  __all__ = [  # comment
-      "Today",  # comment
-      "Yesterday",  # comment
-      "_Thursday",  # comment
-  ]  # comment
+  import io
+  from typing import Iterable, TextIO, Tuple, Type
+   
+  from asort import api
+   
+  __all__ = ["Iterable", "TextIO", "Tuple", "Type"]
+   
+   
+  def test_cli_output(files, snapshot):
+      """
+      multi
+      line
+      string
+      """    
+      # GIVEN
+      for filepath in files:
+          output_stream = io.StringIO()
+   
+          # WHEN
+          changed = api.sort_file(filepath, output_stream=output_stream)
+   
+          # THEN
+          assert output_stream.getvalue() == snapshot
+          assert changed == snapshot
   
   '''
 # ---
@@ -13,7 +32,11 @@
 # ---
 # name: test_cli_output.2
   '''
-  __all__ = ["1", "2", "5", "9"] ; __all__ = ["2", "3", "9"]  # fmt: skip
+  __all__ = [  # comment
+      "Today",  # comment
+      "Yesterday",  # comment
+      "_Thursday",  # comment
+  ]  # comment
   
   '''
 # ---
@@ -22,19 +45,28 @@
 # ---
 # name: test_cli_output.4
   '''
-  __all__ = ["One", "Zed"]
+  __all__ = ["1", "2", "5", "9"] ; __all__ = ["2", "3", "9"]  # fmt: skip
   
   '''
 # ---
 # name: test_cli_output.5
-  False
+  True
 # ---
 # name: test_cli_output.6
+  '''
+  __all__ = ["One", "Zed"]
+  
+  '''
+# ---
+# name: test_cli_output.7
+  False
+# ---
+# name: test_cli_output.8
   '''
   __all__ = ["Today", "Yesterday", "_Thursday"]  # comment
   
   '''
 # ---
-# name: test_cli_output.7
+# name: test_cli_output.9
   True
 # ---
