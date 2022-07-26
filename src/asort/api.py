@@ -4,7 +4,6 @@ import io
 import os
 from collections.abc import Iterable
 from pathlib import Path
-from token import INDENT, NEWLINE, NL
 from tokenize import NAME, OP, STRING, TokenInfo, generate_tokens
 from typing import TextIO
 
