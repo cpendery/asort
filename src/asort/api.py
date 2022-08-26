@@ -223,7 +223,7 @@ def write_stream(processed_tokens: Iterable[TokenInfo], output_stream: TextIO) -
             output_stream.write(token.string)
             continue
 
-        same_line = prev_token.start[0] == token.end[0]
+        same_line = prev_token.end[0] == token.start[0]
         if same_line:
             whitespace_len = token.start[1] - prev_token.end[1]
         else:

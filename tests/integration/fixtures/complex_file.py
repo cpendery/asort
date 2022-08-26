@@ -5,6 +5,10 @@ from asort import api
 
 __all__ = ["Tuple", "Type", "TextIO", "Iterable"]
 
+INDEX_TEMPLATE = """
+    tomato
+    """
+
 
 def test_cli_output(files, snapshot):
     """
