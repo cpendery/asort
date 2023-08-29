@@ -228,7 +228,7 @@ def write_stream(processed_tokens: Iterable[TokenInfo], output_stream: TextIO) -
             whitespace_len = token.start[1] - prev_token.end[1]
         else:
             whitespace_len = len(token.line) - len(token.line.lstrip())
-            if token.string.isspace() or token.start[0] != token.end[0]:
+            if token.string.isspace():
                 whitespace_len = 0
 
         output_stream.write(" " * whitespace_len)

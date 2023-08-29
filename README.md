@@ -13,7 +13,7 @@ asort for `__all__` your `__all__` lists
 
 asort is a Python utility / library to sort imports items in an `__all__` list alphabetically
 It provides a command line utility, Python library and pre-commit support to
-quickly sort all your imports. It requires Python 3.7+ to run but supports formatting 
+quickly sort all your imports. It requires Python 3.7+ to run but supports formatting
 any version of Python code.
 
 Works seemlessly with [black](https://github.com/psf/black) and [isort](https://github.com/PyCQA/isort) with no configuration needed

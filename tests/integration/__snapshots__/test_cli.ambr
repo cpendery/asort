@@ -36,6 +36,34 @@
 # ---
 # name: test_cli_output.2
   '''
+  class SingleLine:
+      """Single line of docstring."""
+  
+      var = ["1", "2"]
+  
+  
+  class Multiline:
+      """Multiple lines of docstring.
+  
+      Used to test the docstring with multiple lines.
+      """
+  
+      var = ["1", "2"]
+      """Test string in
+      multiple lines."""
+  
+      """Test string in a single line."""
+  
+      """Test \
+      string in a single line."""
+  
+  '''
+# ---
+# name: test_cli_output.3
+  False
+# ---
+# name: test_cli_output.4
+  '''
   __all__ = [  # comment
       "Today",  # comment
       "Yesterday",  # comment
@@ -44,33 +72,33 @@
   
   '''
 # ---
-# name: test_cli_output.3
-  True
-# ---
-# name: test_cli_output.4
-  '''
-  __all__ = ["1", "2", "5", "9"] ; __all__ = ["2", "3", "9"]  # fmt: skip
-  
-  '''
-# ---
 # name: test_cli_output.5
   True
 # ---
 # name: test_cli_output.6
   '''
-  __all__ = ["One", "Zed"]
+  __all__ = ["1", "2", "5", "9"] ; __all__ = ["2", "3", "9"]  # fmt: skip
   
   '''
 # ---
 # name: test_cli_output.7
-  False
+  True
 # ---
 # name: test_cli_output.8
+  '''
+  __all__ = ["One", "Zed"]
+  
+  '''
+# ---
+# name: test_cli_output.9
+  False
+# ---
+# name: test_cli_output.10
   '''
   __all__ = ["Today", "Yesterday", "_Thursday"]  # comment
   
   '''
 # ---
-# name: test_cli_output.9
+# name: test_cli_output.11
   True
 # ---
