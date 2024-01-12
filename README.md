@@ -1,5 +1,8 @@
 # asort
 
+> [!IMPORTANT]  
+> `asort` has been deprecated and is getting integrated into [ruff](https://github.com/astral-sh/ruff). Track the progress [here](https://github.com/astral-sh/ruff/issues/1198).
+
 [![PyPI version](https://badge.fury.io/py/asort.svg)](https://badge.fury.io/py/asort)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/cpendery/asort/blob/main/LICENSE)
 [![ASort CI](https://github.com/cpendery/asort/workflows/ASort%20CI/badge.svg)](https://github.com/cpendery/asort/actions/workflows/asort-ci.yaml)
